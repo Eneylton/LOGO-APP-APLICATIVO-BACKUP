@@ -1,18 +1,58 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+
+
+         <img style="margin-left:80px; width:100px; height: 43px;" src="./assets/images/home.gif" />
+         <ion-fab right top >
+            <button style="background-color:#fff;
+            margin-top:2px" (click)="openCart()"><ion-icon style="font-size:25px" color="dark"  name="cart"></ion-icon></button>
+          </ion-fab>
+
   </ion-navbar>
+
+  <ion-toolbar color="danger">
+    <ion-searchbar placeholder="Pesquisar" [(ngModel)]="searchQuery" (search)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content no-padding>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-row>
+    <ion-col col-4><img src="./assets/imgs/bolsa.png" /></ion-col>
+    <ion-col col-4><img src="./assets/imgs/cab.png" /></ion-col>
+    <ion-col col-4><img src="./assets/imgs/cora.png" /></ion-col>
+  </ion-row>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-card>
+    <ion-slides #productSlides autoplay="150000" pager>
+      <ion-slide *ngFor="let number of [3,2,1,4]">
+        <img src="./assets/images/{{number}}.jpg" />
+      </ion-slide>
+
+    </ion-slides>
+  </ion-card>
+
+    <ion-list>
+
+      <ion-card *ngFor="let category of categories" class="card-background-page">
+        <ion-item >
+
+          <img src="{{ category.image }}" />
+          <div style="margin-left:-20px; text-align: center" class="card-title">
+            {{category.name}} <br />
+            <button style="padding:10px" ion-button icon-only ion-button outline color="danger"
+            (click)="openCategoryPage(category)">
+          <ion-icon name="md-log-in"></ion-icon> <span style="padding:5px"> Visite a Loja</span>
+          </button>
+          </div>
+
+
+        </ion-item>
+
+      </ion-card>
+  </ion-list>
 </ion-content>

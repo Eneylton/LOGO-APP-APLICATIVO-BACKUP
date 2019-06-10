@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content scroll="false">
+ <div class="splash-bg"></div>
+  <div class="splash-info">
+    <div class="splash-logo"></div>
+
+    <ion-list >
+        <ion-item>
+          <ion-label floating>Usuário</ion-label>
+          <ion-input type="text" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button style="padding:20px" ion-button icon-only ion-button block color="danger" (click)="login()">
+
+              <ion-icon name="md-log-in"></ion-icon><span style="padding:10px"> Entrar</span>
+          </button>
+
+          <button style="padding:20px" ion-button icon-only block color="secondary" (click)="openPage('signup')">
+              <ion-icon name="md-clipboard"></ion-icon><span style="padding:10px"> Não tem Conta? Clique aqui</span>
+          </button>
+
+        </ion-item>
+
+      </ion-list>
+
+  </div>
+
+</ion-content>

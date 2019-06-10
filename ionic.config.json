@@ -1,5 +1,7 @@
 {
   "name": "logo-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
